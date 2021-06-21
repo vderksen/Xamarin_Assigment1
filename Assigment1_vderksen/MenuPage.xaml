@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Assigment1_vderksen.MenuPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="Check Current Order"
+                    Clicked="currentOrderView"
+                    FontSize="Medium"
+                    Margin="0,5,0,5"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="Update Current Order"
+                    Clicked="updateCurrentOrder"
+                    FontSize="Medium"
+                    Margin="0,5,0,5"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="Previous Order"
+                    Clicked="previousOrderView"
+                    FontSize="Medium"
+                    Margin="0,5,0,5"/>
+             <Button Grid.Row="0" Grid.Column="0" Text="New Order"
+                    Clicked="newOrderView"
+                    FontSize="Medium"
+                    Margin="0,5,0,5"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

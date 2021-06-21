@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    Title="My Current Order"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Assigment1_vderksen.MyOrder">
+<StackLayout>
+    <!-- ROW LAYOUT FOR QUANTITY LABEL-->
+        <StackLayout HorizontalOptions="Center">
+            <Label x:Name="totalQty"
+                   Text=""
+                   FontAttributes="Bold"
+                   FontSize="Medium"/>
+            <Label x:Name="totalPrice"
+                   Text=""
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+        </StackLayout>
+       <ListView x:Name="pizzasList" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="5">
+                        <Grid RowSpacing="5" Margin="10,0,10,0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Topping:" Grid.Row="0" Grid.Column="0" />
+                            <Label Text="{Binding topping}" Grid.Row="0" Grid.Column="1" />
+                            <Label Text="$" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="End"/>
+                            <Label Text="{Binding total}" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="End"/>
+                            <Label Text="Size: " Grid.Row="1" Grid.Column="0" />
+                            <Label Text="{Binding size}" Grid.Row="1" Grid.Column="1" />
+                            <Label Text="Quantity: " Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="End"/>
+                            <Label Text="{Binding quantity}" Grid.Row="1" Grid.Column="3" HorizontalTextAlignment="End" />
+                        </Grid>
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" IsDestructive="True"
+                           CommandParameter="{Binding .}"
+                           Clicked="Delete_Clicked" />
+            </ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+       </ListView>
+       <Button Grid.Row="0" Grid.Column="0" Text="Place Order"
+               Clicked="placeOrder"
+               FontSize="Medium"
+               Margin="20,15,20,15"/>
+   </StackLayout>
+</ContentPage>

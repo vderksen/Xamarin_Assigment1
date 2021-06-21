@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Pizza App" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assigment1_vderksen.MainPage">
+
+    <!-- CONTAINER LAYOUT-->
+    <StackLayout>
+
+        <!-- ROW LAYOUT FOR IMAGE AND MY ORDER BUTTON-->
+        <FlexLayout Direction="Row"
+                AlignItems="Center"
+                JustifyContent="SpaceBetween"
+                Margin="30,10,30,5">
+            <Image Source="https://images.freeimages.com/images/large-previews/fe9/pizza-1319976.jpg"
+                HeightRequest="100"
+                HorizontalOptions="Start"/>
+
+            <Button Text="My order"  BackgroundColor="Blue"
+                 HorizontalOptions="End"
+                 CornerRadius="10"
+                 Clicked="viewOrder"
+                 BorderWidth="1" BorderColor="Black"/>
+        </FlexLayout>
+
+        <!-- ROW LAYOUT FOR QUANTITY LABEL-->
+        <FlexLayout Direction="Row"
+                JustifyContent="Start"
+                Margin="30,0,0,5">
+            <Label Text="Quantity: "
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <Label x:Name="quantityEntered"
+                   Text="0" TextColor="Blue"
+                   FontSize="Medium"/>
+        </FlexLayout>
+
+        <!-- CONTAINER LAYOUT FOR NUMBER KEYBOARD GRID LAYOUT-->
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Button Grid.Row="0" Grid.Column="0" Text="1"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="2"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="3"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="1" Grid.Column="0" Text="4"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="5"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="1" Grid.Column="2" Text="6"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="2" Grid.Column="0" Text="7"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="8"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="2" Grid.Column="2" Text="9"
+                        Clicked="Number_Clicked"
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="3" Grid.Column="0"  Text="Reset"
+                        Clicked="resetOrder"
+                       HorizontalOptions="Center"
+                       BackgroundColor="Red"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="3" Grid.Column="1"  Text="0"
+                        Clicked="Number_Clicked"
+                       HorizontalOptions="Center"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+                <Button Grid.Row="3" Grid.Column="2"  Text="Add"
+                       Clicked="addNewPizza"
+                       HorizontalOptions="Center"
+                       BackgroundColor="LawnGreen"
+                       CornerRadius="10"
+                       BorderWidth="1" BorderColor="Black"/>
+            </Grid>
+        </FlexLayout>
+
+        <!-- ROW LAYOUT FOR TOPPING AND SIZE LABELS-->
+        <FlexLayout Direction="Row"
+                AlignItems="Start"
+                JustifyContent="SpaceBetween"
+                Margin="30,5,30,0">
+            <Label Text="Toppings: "
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <Label x:Name="toppingEntered" Text="None" TextColor="Blue"
+                   FontSize="Medium"/>
+            <Label Text="Size: "
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <Label x:Name="sizeEntered" Text="None" TextColor="Blue"
+                   FontSize="Medium"/>
+        </FlexLayout>
+
+        <!-- ROW LAYOUT FOR TOPPING AND SIZE LISTS-->
+        <FlexLayout Direction="Row"
+                    Margin="20,0,20,5">
+            <ListView x:Name="toppingsList" ItemSelected="toppingsList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                      <TextCell Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="sizesList" ItemSelected="sizesList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                      <TextCell Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+             </ListView>
+        </FlexLayout>
+
+    </StackLayout>
+
+</ContentPage>
